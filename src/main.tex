@@ -1,0 +1,23 @@
+\documentclass[UTF8,a4paper,draft,openany]{ctexbook}
+
+\input{css.tex}
+
+\begin{document}
+
+\input{cover.tex}
+
+\frontmatter
+
+\pagestyle{tocstyle}      % 目录页：无页眉
+
+\tableofcontents
+
+\pagestyle{fancy}     % 目录结束后恢复正文页眉
+
+\mainmatter
+
+\chapter{开发设备的准备}
+
+\include{ch01/index}
+
+\end{document}

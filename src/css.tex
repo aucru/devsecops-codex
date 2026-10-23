@@ -1,0 +1,31 @@
+% ===== 编号深度 =====
+\setcounter{secnumdepth}{3}
+
+% ===== 页眉页脚 =====
+\usepackage{fancyhdr}
+\setlength{\headheight}{13pt}
+
+% 让 subsection 写入 \rightmark
+\makeatletter
+\renewcommand{\subsectionmark}[1]{%
+  \markright{\thesubsection\quad #1}%
+}
+\makeatother
+
+% 正文页眉样式
+\fancypagestyle{fancy}{%
+  \fancyhf{}%
+  \fancyhead[LE,LO]{\rightmark}%
+  \fancyhead[RE,RO]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% 目录页样式：无页眉，保留页码（如需无页码，删掉 fancyfoot 那行）
+\fancypagestyle{tocstyle}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% 全局默认用 fancy，但目录处会显式切到 tocstyle
+\pagestyle{fancy}
