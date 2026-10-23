@@ -1,5 +1,44 @@
+\usepackage{epigraph}
+\setlength{\epigraphwidth}{0.7\textwidth}
+\setlength{\epigraphrule}{0pt}
+
+% 控制引文文字的对齐方式（这才是你需要的）
+\renewcommand{\textflush}{flushright}
+
+% 控制出处文字的对齐方式
+\renewcommand{\sourceflush}{flushright}
+
 % ===== 编号深度 =====
 \setcounter{secnumdepth}{3}
+
+% ===== 字体 =====
+% \usepackage{fontspec}
+% \usepackage{xeCJK}
+
+% \setmainfont{Sarasa Fixed SC}[
+%     BoldFont = Sarasa Fixed SC Bold
+% ]
+% \setCJKmainfont{Sarasa Fixed SC}[
+%     BoldFont = Sarasa Fixed SC Bold
+% ]
+
+% ===== 页边距 =====
+\usepackage{geometry}
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=2.5cm}
+
+% ===== 章标题格式 =====
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\raggedright\Huge\bfseries}
+  {第\thechapter 章\quad}
+  {0pt}
+  {}
+
+\titleformat{\section}[block]
+  {\raggedright\Large\bfseries}
+  {\thesection\quad}
+  {0pt}
+  {}
 
 % ===== 页眉页脚 =====
 \usepackage{fancyhdr}
@@ -28,4 +67,14 @@
 }
 
 % 全局默认用 fancy，但目录处会显式切到 tocstyle
-\pagestyle{fancy}
+\pagestyle{fancy}  % 去掉引文和正文之间的横线
+
+% 版权声明的年限
+\newif\ifsameyear
+\newcommand{\copyrightyear}{%
+  \ifnum\year=2026\relax
+    2026%
+  \else
+    2026--\the\year
+  \fi
+}
