@@ -4,27 +4,51 @@
 
 \begin{document}
 
-\input{cover.tex}
+  \input{cover.tex}
+  
+  \frontmatter
+  
+  \input{preface}
 
-\frontmatter
+  \pagestyle{tocstyle}      % 目录页：无页眉
+  \tableofcontents
+  \pagestyle{fancy}     % 目录结束后恢复正文页眉
 
-\pagestyle{tocstyle}      % 目录页：无页眉
+  \mainmatter
 
-\tableofcontents
+  \part{准备篇}
+    \input{ch01/index}
 
-\pagestyle{fancy}     % 目录结束后恢复正文页眉
+  \part{通识篇}
+    \chapter{基础网络知识}
+      \todo{本章未开始}
 
-\mainmatter
+  \part{开发篇}
+    \chapter{开发语言基础}
+      \section{Rust 基础语法}
 
-\input{ch01/index}
+  \part{运维篇}
+    \chapter{Linux 系统部分}
+    \chapter{基座与业务云化}
 
-\appendix
+  \part{平台篇}
+    \chapter{构建基础设施}
+    \chapter{构建监控平台}
 
-\titleformat{\chapter}[block]
-  {\raggedright\Huge\bfseries}
-  {附录\thechapter\quad}
-  {0pt}
-  {}
-\input{appendix/index}
+  \part{架构篇}
+    \chapter{高可用架构设计}
 
+
+  \part{调优篇}
+    \chapter{Linux 系统性能调优}
+
+  \appendix
+
+  \titleformat{\chapter}[block]
+    {\raggedright\Huge\bfseries}
+    {附录\thechapter\quad}
+    {0pt}
+    {}
+
+    \input{appendix/index}
 \end{document}
