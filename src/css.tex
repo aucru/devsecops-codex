@@ -2,6 +2,17 @@
 \setlength{\epigraphwidth}{0.7\textwidth}
 \setlength{\epigraphrule}{0pt}
 
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=black,
+}
+\usepackage{xurl}
+
+\usepackage[hang,flushmargin]{footmisc} % 可选：让脚注悬挂缩进、贴边
+\renewcommand{\thefootnote}{[\arabic{footnote}]}
+
 % 控制引文文字的对齐方式（这才是你需要的）
 \renewcommand{\textflush}{flushright}
 

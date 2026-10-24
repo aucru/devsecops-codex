@@ -1,15 +1,36 @@
+\chapter{工作站与系统环境}
+
+\epigraph{工欲善其事，必先利其器。}{《论语·卫灵公》}
+
 \section{总述}
 
-本章节依次覆盖 Windows、macOS、Unix-like 三个平台。
+本章节依次覆盖 Windows、macOS、Unix-like 和 Web 四个平台。
+除特别说明外，本书所述软件版本以写作时各平台最新稳定版为准，
+安装包优先从官方渠道获取；设计命令行的操作以各平台默认终端为准。
 
-Windows 平台指 Microsoft 出品的 Windows 11 与 Windows 10 操作系统；
+Windows 平台指的是 Microsoft 出品的 Windows 11 与 Windows 10 操作系统；
 更早的 Windows 7 与 Windows XP 已停止官方支持，本书不作说明。
-Windows Server 系列经笔者实测存在部分软件适配性问题，不建议作为日常开发环境使用。
+Windows Server 系列存在较多软件适配性问题，不建议作为日常开发环境使用。
 
-macOS 平台指 Apple Inc. 出品的 macOS 操作系统。此操作系统与 Apple Inc. 的 MAC 硬件强绑定，故对于此系统的安装不作说明。
-由于 Apple Inc. 的战略决策问题，目前已经全部转向 ARM 架构的 M 系列芯片，对于 x86 平台的旧 MAC 设备将进行淘汰，所以本书只说明 ARM 架构相关的软件。
+macOS 平台指的是 Apple Inc. 出品的 macOS 操作系统。该系统与 Apple 硬件强绑定，
+本书不对其安装作说明；且 Apple 已全面转向 ARM 架构的 M 系列芯片，
+故本书仅覆盖 Apple Silicon 设备，Intel Mac 不在范围内。
 
-Unix-like 平台
+Unix-like 平台指的是以 Linux 内核为核心的发行版以及以 BSD 内核为核心的发行版。
+本章节特指带 GUI 界面的 NAS 系统（如群晖、飞牛）、
+带 GUI 的 Linux 系统（如 Ubuntu），以及 OpenSense 这类防火墙系统；
+纯命令行服务器环境，以及带 GUI 界面但作为通用服务器使用的系统均不在本章讨论范围之内。
+
+Web 平台指的是以浏览器为运行环境的平台。按浏览器内核划分，
+本章覆盖 WebKit（Apple Safari）、Blink（Google Chrome）
+与 Gecko（Mozilla Firefox）三大内核的代表性浏览器。
+
+安装介质（启动盘）的制作原则与工具选择见下一节，
+各平台的具体操作在对应章节中说明。
+
+\section{安装介质制作}
+
+\input{ch01/00-bootable-usb}
 
 \section{Windows 平台}
 
@@ -18,3 +39,5 @@ Unix-like 平台
 \section{macOS 平台}
 
 \section{Unix-like 平台}
+
+\section{Web 平台}
