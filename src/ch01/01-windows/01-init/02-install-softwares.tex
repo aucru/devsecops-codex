@@ -4,6 +4,22 @@
 
 \subsubsection{常用软件的安装与配置}
 
+\paragraph{Scoop 包管理器的安装与配置}
+
+Windows 下这里使用 Scoop 包管理器来实现 macOS 下的 brew 的安装体验：
+
+Scoop 安装的命令如下：
+
+\begin{minted}{powershell}
+$env:SCOOP='D:\Scoop\Curent'
+[Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
+
+$env:SCOOP_GLOBAL='D:\Scoop\Global'
+[environment]::setEnvironmentVariable('SCOOP_GLOBAL',$env:SCOOP_GLOBAL,'Machine')
+
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+\end{minted}
+
 \subsubsection{开发环境的安装与配置}
 
 \begin{minted}{rust}

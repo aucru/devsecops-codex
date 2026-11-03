@@ -108,3 +108,17 @@
     frame=single,   % 边框
     fontsize=\small
 }
+
+\titleformat{\paragraph}[block]
+    {\normalfont\normalsize\bfseries}
+    {\theparagraph}
+    {1em}
+    {}
+
+\titlespacing*{\paragraph}
+    {0pt}
+    {2.5ex plus 1ex minus .2ex}
+    {1ex}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}    
