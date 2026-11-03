@@ -101,8 +101,10 @@
 \usepackage{xcolor}
 
 \usepackage{minted}
-\lstset{
-  showspaces=false,
-  showstringspaces=false,
-  showtabs=false,
+\usemintedstyle{default} % 可选：default, monokai, friendly 等
+\setminted{
+    linenos,        % 显示行号
+    breaklines,     % 自动换行
+    frame=single,   % 边框
+    fontsize=\small
 }
