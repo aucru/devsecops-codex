@@ -103,10 +103,12 @@
 \usepackage{minted}
 \usemintedstyle{default} % 可选：default, monokai, friendly 等
 \setminted{
-    linenos,        % 显示行号
-    breaklines,     % 自动换行
-    frame=single,   % 边框
-    fontsize=\small
+    linenos,
+    breaklines,
+    frame=single,
+    fontsize=\small,
+    xleftmargin=\parindent,
+    numbersep=0.8em
 }
 
 \titleformat{\paragraph}[block]
@@ -115,10 +117,22 @@
     {1em}
     {}
 
-\titlespacing*{\paragraph}
+\titlespacing{\paragraph}
     {0pt}
     {2.5ex plus 1ex minus .2ex}
     {1ex}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}    
+
+% subparagraph 独占一行，不编号
+\titleformat{\subparagraph}[block]
+    {\normalfont\normalsize\bfseries}
+    {}
+    {0pt}
+    {}
+
+\titlespacing{\subparagraph}
+    {0pt}
+    {1.5ex plus .5ex minus .2ex}
+    {0.8ex}
