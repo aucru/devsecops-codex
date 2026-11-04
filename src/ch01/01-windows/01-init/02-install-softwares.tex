@@ -8,11 +8,26 @@
 
 \paragraph{Scoop 包管理器}
 
-Windows 下这里使用 Scoop 包管理器来实现 macOS 下的 brew 的安装体验：
+Windows 下这里使用 Scoop 包管理器来实现 macOS 下的 brew 的安装体验；
+Scoop 使用 \mintinline{text}{.ps1} 文件即 Powershell 脚本文件来进行
+安装的， 而 Windows 默认情况下是不允许执行该脚本文件的，所以我们首先需要
+对 Powershell 的执行策略进行修改，具体的操作步骤如下：
+
+\begin{enumerate}
+  \item 在\mintinline{text}{开始菜单}中搜索\mintinline{text}{Powershell}，右键点击
+并选择\mintinline{text}{以管理员身份运行}。
+  \item 输入 \mintinline{powershell}{Get-ExecutionPolicy} 并按 \mintinline{text}{Enter} 查看单前策略。
+  \item 输入 \mintinline{powershell}{Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine} 并按 \mintinline{text}{Enter}
+  \item 在提示确认时输入 \mintinline{text}{Y} 并按 \mintinline{text}{Enter}。
+  \item 输入 \mintinline{powershell}{Get-ExecutionPolicy -List} 验证策略是否更新。
+\end{enumerate}
+
+在确保可以执行脚本文件后，接着我们进入 Scoop 的安装与配置。
 
 \subparagraph{Scoop 的安装}
 
-Scoop 安装的命令如下：
+Scoop 默认安装在 \mintinline{text}{C:\} 盘符下，在安装 Scoop 之前需要
+先修改默认安装位置：
 
 \begin{minted}{powershell}
 $env:SCOOP='D:\Scoop\Curent'
@@ -20,8 +35,52 @@ $env:SCOOP='D:\Scoop\Curent'
 
 $env:SCOOP_GLOBAL='D:\Scoop\Global'
 [environment]::setEnvironmentVariable('SCOOP_GLOBAL',$env:SCOOP_GLOBAL,'Machine')
+\end{minted}
+
+其中，第一段表示当前用户安装的 Scoop 软件所存放的位置，包括 Scoop 自身；
+第二段表示使用 Scoop 全局安装的软件所存放的位置。
+
+需要注意的是，全局变量的需要在以管理员权限打开的终端中执行。
+
+然后执行如下命令进行 Scoop 的安装：
+
+\begin{minted}{powershell}
+$env:HTTP_PROXY="http://127.0.0.1:10810"
+$env:HTTPS_PROXY="http://127.0.0.1:10810"
 
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+\end{minted}
+
+由于 Scoop 默认使用 Github 的地址来进行安装，所以我们首先需要配置的是网络代理。
+当然，也可以选择使用国内的源，这里不做说明，请自行使用 AI 或搜索引擎进行安装。
+
+在脚本执行完成后，可以使用如下命令进行成功与否的确认：
+
+\begin{minted}{powershell}
+scoop -v
+\end{minted}
+
+\subparagraph{Scoop 的配置}
+
+在 Scoop 安装完成后，接着我们需要进行一些配置，使得 Scoop 更加的好用。
+首先需要配置是 Git 软件，这是一切的基础，而安装 Git 很简单，只需要执行如下指令即可：
+
+\begin{minted}{powershell}
+scoop install git
+\end{minted}
+
+接着需要配置的是 Scoop 的软件仓库。
+
+\begin{minted}{shell}
+scoop bucket add extras
+scoop bucket add java
+scoop bucket add nerd-fonts
+\end{minted}
+
+对于没有提及的软件仓库也可以使用如下命令进行查看：
+
+\begin{minted}{powershell}
+scoop bucket known list
 \end{minted}
 
 \subsubsection{开发环境的安装与配置}
